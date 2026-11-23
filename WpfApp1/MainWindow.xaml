@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" MinHeight="450" MinWidth="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Нарисовать фигуры" Click="Draw_Click" Width="150" Height="30" Margin="10" HorizontalAlignment="Left"/>
+
+        <Canvas x:Name="CoolCanvas" Grid.Row="1" Background="LightGray"/>
     </Grid>
 </Window>
