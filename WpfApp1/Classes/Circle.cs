@@ -11,29 +11,31 @@ namespace WpfApp1.Classes
 {
     public class Circle : GeometricFigure
     {
-        public double Radius { get; set; }
+        public double Diameter { get; set; }
 
-        public Circle(double x, double y, double radius) : base(x, y)
+        public Circle(double x, double y, double diameter) : base(x, y)
         {
-            Radius = radius;
+            Diameter = diameter;
         }
 
         public override void Draw(Canvas canvas)
         {
+            double radius = Diameter / 2;
+
             Ellipse circle = new Ellipse
             {
-                Width = Radius * 3,
-                Height = Radius * 3,
+                Width = Diameter,
+                Height = Diameter,
                 StrokeThickness = 6,
                 Stroke = Brushes.HotPink,
                 Fill = Brushes.LightPink
             };
 
-            Canvas.SetLeft(circle, X - Radius);
-            Canvas.SetTop(circle, Y - Radius);
+            Canvas.SetLeft(circle, X - radius);
+            Canvas.SetTop(circle, Y - radius);
 
             canvas.Children.Add(circle);
-        }
 
+        }
     }
 }

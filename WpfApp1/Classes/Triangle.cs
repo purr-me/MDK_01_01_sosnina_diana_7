@@ -14,19 +14,15 @@ namespace WpfApp1.Classes
 {
     public class Triangle : GeometricFigure
     {
-        public double X1 { get; set; }
-        public double Y1 { get; set; }
-        public double X2 { get; set; }
-        public double Y2 { get; set; }
-        public double X3 { get; set; }
-        public double Y3 { get; set; }
+        public double A { get; set; }
+        public double B { get; set; }
+        public double C { get; set; }
 
-
-        public Triangle(double x, double y, double x1, double y1, double x2, double y2, double x3, double y3) : base(x, y)
+        public Triangle(double x, double y, double a, double b, double c) : base(x, y)
         {
-            X1 = x1; Y1 = y1;
-            X2 = x2; Y2 = y2;
-            X3 = x3; Y3 = y3;
+            A = a;
+            B = b;
+            C = c;
         }
 
 
@@ -39,9 +35,9 @@ namespace WpfApp1.Classes
                 Fill = Brushes.HotPink
             };
 
-            triangle.Points.Add(new Point(X1, Y1));
-            triangle.Points.Add(new Point(X2, Y2));
-            triangle.Points.Add(new Point(X3, Y3));
+            triangle.Points.Add(new Point(X, Y - A / 2));
+            triangle.Points.Add(new Point(X - A / 2, Y + A / 2));
+            triangle.Points.Add(new Point(X + A / 2, Y + A / 2));
 
             canvas.Children.Add(triangle);
         }

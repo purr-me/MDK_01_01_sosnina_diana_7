@@ -31,12 +31,11 @@ namespace WpfApp1
             CoolCanvas.Children.Clear();
 
             
-            Circle circle = new Circle(100, 100, 50);
+            Circle circle = new Circle(150, 150, 120);
             circle.Draw(CoolCanvas);
 
-            Triangle triangle = new Triangle(300, 100, 300, 50, 250, 150, 350, 150);
+            Triangle triangle = new Triangle(400, 150, 120, 120, 120);
             triangle.Draw(CoolCanvas);
         }
-
     }
 }
