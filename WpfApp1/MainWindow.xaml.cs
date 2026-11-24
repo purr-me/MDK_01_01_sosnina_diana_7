@@ -37,5 +37,20 @@ namespace WpfApp1
             Triangle triangle = new Triangle(400, 150, 120, 120, 120);
             triangle.Draw(CoolCanvas);
         }
+
+        private void DrawTriangle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DrawCircle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

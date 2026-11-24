@@ -28,6 +28,12 @@ namespace WpfApp1.Classes
 
         public override void Draw(Canvas canvas)
         {
+            if(A+B <= C || A+C <= B || B+C <= A)
+            {
+                MessageBox.Show("Такого не может быть!");
+                return;
+            }
+
             Polygon triangle = new Polygon
             {
                 Stroke = Brushes.LightPink,
