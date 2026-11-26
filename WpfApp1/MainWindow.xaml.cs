@@ -26,31 +26,54 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void Draw_Click(object sender, RoutedEventArgs e)
-        {
-            CoolCanvas.Children.Clear();
-
-            
-            Circle circle = new Circle(150, 150, 120);
-            circle.Draw(CoolCanvas);
-
-            Triangle triangle = new Triangle(400, 150, 120, 120, 120);
-            triangle.Draw(CoolCanvas);
-        }
 
         private void DrawTriangle_Click(object sender, RoutedEventArgs e)
         {
+            if (double.TryParse(txTriangleX.Text, out double x) &&
+                double.TryParse(txTriangleY.Text, out double y) &&
+                double.TryParse(txTriangle1.Text, out double a) &&
+                double.TryParse(txTriangle2.Text, out double b) &&
+                double.TryParse(txTriangle3.Text, out double c))
+            {
+                if (a <= 0 || b <= 0 || c <= 0)
+                {
+                    MessageBox.Show("Стороны треугольника должны быть больше нуля");
+                    return;
+                }
 
+                Triangle triangle = new Triangle(x, y, a, b, c);
+                triangle.Draw(CoolCanvas);
+            }
+            else
+            {
+                MessageBox.Show("Введите корректные числа");
+            }
         }
 
         private void DrawCircle_Click(object sender, RoutedEventArgs e)
         {
+            if (double.TryParse(txCircleX.Text, out double x) &&
+                double.TryParse(txCircleY.Text, out double y) &&
+                double.TryParse(txCircleD.Text, out double d))
+            {
+                if (d <= 0)
+                {
+                    MessageBox.Show("Диаметр должен быть больше нуля");
+                    return;
+                }
 
+                Circle circle = new Circle(x, y, d);
+                circle.Draw(CoolCanvas);
+            }
+            else
+            {
+                MessageBox.Show("Введите корректные числа");
+            }
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-
+            CoolCanvas.Children.Clear();
         }
     }
 }

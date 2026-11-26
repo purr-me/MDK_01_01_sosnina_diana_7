@@ -33,6 +33,18 @@ namespace WpfApp1.Classes
                 MessageBox.Show("Такого не может быть!");
                 return;
             }
+            //две вершины а=0,0 б=с,0
+            double x1 = 0, y1 = 0;
+            double x2 = C, y2 = 0;
+            //с ищем по теореме косинусов
+            double x3 = (A * A + C * C - B * B) / (2 * C);
+            double y3 = -Math.Sqrt(A * A - x3 * x3);
+            //центр
+            double centerX = (x1 + x2 + x3) / 3;
+            double centerY = (y1 + y2 + y3) / 3;
+            //для нужного места
+            double shiftX = X - centerX;
+            double shiftY = Y - centerY;
 
             Polygon triangle = new Polygon
             {
@@ -41,9 +53,10 @@ namespace WpfApp1.Classes
                 Fill = Brushes.HotPink
             };
 
-            triangle.Points.Add(new Point(X, Y - A / 2));
-            triangle.Points.Add(new Point(X - A / 2, Y + A / 2));
-            triangle.Points.Add(new Point(X + A / 2, Y + A / 2));
+
+            triangle.Points.Add(new Point(x1 + shiftX, y1 + shiftY));
+            triangle.Points.Add(new Point(x2 + shiftX, y2 + shiftY));
+            triangle.Points.Add(new Point(x3 + shiftX, y3 + shiftY));
 
             canvas.Children.Add(triangle);
         }
